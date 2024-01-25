@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 // eslint-disable-next-line camelcase
 import { Inter, Space_Grotesk } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import ThemeProvider from "@/context/ThemeProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,9 +32,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         },
       }}
     >
-      <html lang="en">
-        <body className={`${inter.variable} ${spaceGrotesk.variable}`}>{children}</body>
-      </html>
+      <ThemeProvider>
+        <html lang="en">
+          <body className={`${inter.variable} ${spaceGrotesk.variable}`}>{children}</body>
+        </html>
+      </ThemeProvider>
     </ClerkProvider>
   );
 }
