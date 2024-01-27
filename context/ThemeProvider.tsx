@@ -12,19 +12,22 @@ export const ThemeContext = createContext<ThemeContextType>({ mode: "", setMode:
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mode, setMode] = useState<String>("");
 
-  const handleThemeChange = useCallback(() => {
-    if (mode === "dark") {
-      setMode("light");
-      document.documentElement.classList.add("light");
-    } else {
+  const handleThemeChange = () => {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-colors-scheme:dark)").matches)
+    ) {
       setMode("dark");
       document.documentElement.classList.add("dark");
+    } else {
+      setMode("light");
+      document.documentElement.classList.remove("dark");
     }
-  }, []);
+  };
 
   useEffect(() => {
     handleThemeChange();
-  }, [handleThemeChange]);
+  }, [mode]);
 
   return (
     <>
