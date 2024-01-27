@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, createContext, useCallback } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
 interface ThemeContextType {
   mode: String;
