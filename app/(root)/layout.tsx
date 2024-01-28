@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "@/components/modules/Navbar";
+import Navbar from "@/components/modules/navbar/Navbar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <main className="background-light900_dark100 relative text-white ">
+    <main className="background-light900_dark100 relative ">
       <Navbar />
       <div className="flex ">
         LeftSidebar

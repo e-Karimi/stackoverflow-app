@@ -2,7 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { UserButton, SignedIn } from "@clerk/nextjs";
-import Theme from "@/components/modules/Theme";
+import Theme from "@/components/modules/navbar/Theme";
+import MobileNav from "@/components/modules/navbar/MobileNav";
+import GlobalSearch from "../search/GlobalSearch";
 
 export default function Navbar() {
   return (
@@ -15,7 +17,7 @@ export default function Navbar() {
         </p>
       </Link>
       {/* Global Search */}
-      GlobalSearch{/* <GlobalSearch /> */}
+      <GlobalSearch />
       <div className="flex-between gap-5">
         <Theme />
         {/* User */}
@@ -31,7 +33,7 @@ export default function Navbar() {
           />
         </SignedIn>
         {/* Mobile Nav */}
-        MobileNav {/* <MobileNav /> */}
+        <MobileNav />
       </div>
     </nav>
   );
