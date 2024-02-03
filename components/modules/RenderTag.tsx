@@ -3,14 +3,13 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 
 interface RenderTagProps {
-  _id: Number;
-  name: String;
+  _id: string;
+  name: string;
   totalQuestions?: Number;
   showCount?: Boolean;
 }
 
 export default function RenderTag({ _id, name, totalQuestions, showCount }: RenderTagProps) {
-  console.log("RenderTag ~ _id, name, totalQuestions:", showCount, totalQuestions);
   return (
     <>
       <Link href={`/tags/${_id}`} className="mr-4 flex justify-between gap-2 ">

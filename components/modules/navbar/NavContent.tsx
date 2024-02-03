@@ -28,7 +28,7 @@ export default function NavContent() {
                 width={16}
                 height={16}
                 className={`${isActive ? "" : "invert-colors"}`}
-              />
+            />
               <span className={`${isActive ? "text-sm font-bold" : "text-sm"}`}>{item.label}</span>
             </Link>
           </SheetClose>

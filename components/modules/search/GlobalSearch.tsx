@@ -22,7 +22,7 @@ export default function GlobalSearch() {
           onChange={(e) => setValue(e.target.value)}
           type="text"
           placeholder="Search Globally..."
-          className="paragraph-regular no-focus placeholder text-dark400_light700 background-light800_dark400 border-none shadow-none outline-none"
+          className="no-focus placeholder text-dark400_light700 background-light800_dark400 border-none shadow-none outline-none"
         />
       </div>
     </div>

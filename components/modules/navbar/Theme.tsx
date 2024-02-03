@@ -20,7 +20,7 @@ export default function Theme() {
   };
 
   return (
-    <Menubar className="relative border-none bg-transparent shadow-none">
+    <Menubar className="relative  border-none bg-transparent shadow-none">
       <MenubarMenu>
         <MenubarTrigger className="focus:bg-light-900 data-[state=open]:bg-light-900 dark:focus:bg-dark-200 dark:data-[state=open]:bg-dark-200">
           {mode === "light" ? (
@@ -29,7 +29,7 @@ export default function Theme() {
             <Image src="/assets/icons/moon.svg" alt="moon" height={20} width={20} className="active-theme" />
           )}
         </MenubarTrigger>
-        <MenubarContent className="absolute right-[-3rem] mt-3 min-w-[120px] rounded border py-2 dark:border-dark-400 dark:bg-dark-300">
+        <MenubarContent className="absolute right-[-3rem] z-50 mt-3 min-w-[120px] rounded border bg-white py-2 dark:border-dark-400 dark:bg-dark-300">
           {themes.map((item) => (
             <MenubarItem key={item.value} onClick={() => handlechangeMode(item)}>
               <Image
