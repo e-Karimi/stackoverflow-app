@@ -29,7 +29,7 @@ export default function NavContent() {
                 height={16}
                 className={`${isActive ? "" : "invert-colors"}`}
               />
-              <p className={`${isActive ? "text-sm font-bold" : "text-sm"}`}>{item.label}</p>
+              <span className={`${isActive ? "text-sm font-bold" : "text-sm"}`}>{item.label}</span>
             </Link>
           </SheetClose>
         );
