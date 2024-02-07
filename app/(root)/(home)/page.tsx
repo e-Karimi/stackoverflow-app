@@ -1,14 +1,18 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { questions } from "@/constants/index";
 import LocalSearchbar from "@/components/modules/search/LocalSearchbar";
 import Filter from "@/components/modules/Filter";
 import { HomePageFilters } from "@/constants/filtes";
 import HomeFilters from "@/components/home/HomeFilters ";
 import QuestionCard from "@/components/cards/QuestionCard";
 import NoResult from "@/components/modules/NoResult";
+import { getQuestions } from "@/lib/actions/question.actions";
+import type { QuestionCardProps } from "@/components/cards/QuestionCard";
 
-export default function Home() {
+export default async function Home() {
+  const results = await getQuestions({});
+
+
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
@@ -42,8 +46,20 @@ export default function Home() {
 
       {/* Questions */}
       <div className="mt-10 flex w-full flex-col gap-6 ">
-        {questions.length > 0 ? (
-          questions.map((question) => <QuestionCard key={question._id} {...question} />)
+        {results?.questions.length > 0 ? (
+          results?.questions.map((question: QuestionCardProps) => (
+            <QuestionCard
+              key={question._id}
+              _id={question._id}
+              title={question.title}
+              tags={question.tags}
+              author={question.author}
+              upvotes={question.upvotes}
+              answers={question.answers}
+              views={question.views}
+              createdAt={question.createdAt}
+            />
+          ))
         ) : (
           <NoResult
             title="There's no question to show"

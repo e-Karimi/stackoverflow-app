@@ -14,8 +14,8 @@ interface LocalSearchbarProps {
 
 export default function LocalSearchbar(props: LocalSearchbarProps) {
   const [value, setValue] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const { imgSrc, route, iconPosition, placeholder, otherClasses } = props;
-  console.log("LocalSearchbar ~ route:", route);
 
   return (
     <div

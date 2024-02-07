@@ -4,20 +4,31 @@ import Link from "next/link";
 import Metric from "../modules/Metric ";
 import RenderTag from "../modules/RenderTag";
 
-interface Props {
+export interface QuestionCardProps {
   _id: string;
   title: string;
   tags: { _id: string; name: string }[];
-  author: { _id: string; name: string; picture: string };
+  author: {
+    _id: string;
+    name: string;
+    picture: string;
+  };
   upvotes: number;
-  answers: Array<Object>;
+  answers: Array<object>; // TODO
   views: number;
   createdAt: Date;
 }
 
-export default function QuestionCard(props: Props) {
-  const { _id, title, tags, author, upvotes, answers, views, createdAt } = props;
-
+export default function QuestionCard({
+  _id,
+  title,
+  tags,
+  author,
+  upvotes,
+  answers,
+  views,
+  createdAt,
+}: QuestionCardProps) {
   return (
     <div className="card-wrapper rounded-[10px] p-9 sm:px-11">
       <div className="flex flex-col-reverse items-start justify-between gap-5 sm:flex-row">
@@ -39,19 +50,19 @@ export default function QuestionCard(props: Props) {
 
       {/* Tags */}
       <div className="mt-3.5 flex flex-wrap gap-2">
-        {tags.map((tag) => {
-          return <RenderTag key={tag._id} {...tag} />;
+        {tags?.map((tag) => {
+          return <RenderTag key={tag._id} _id={tag._id} name={tag.name} />;
         })}
       </div>
 
       <div className="flex-between mt-6 w-full flex-wrap gap-3">
         {/* Author */}
         <Metric
-          imgUrl={author.picture}
+          imgUrl={author?.picture}
           alt="user"
-          value={author.name}
+          value={author?.name}
           title={`- asked ${getTimestamp(createdAt)}`}
-          href={`/profile/${author._id}`}
+          href={`/profile/${author?._id}`}
           isAuthor
           textStyle="body-medium text-dark400_light700"
         />
@@ -69,7 +80,7 @@ export default function QuestionCard(props: Props) {
         <Metric
           imgUrl="/assets/icons/message.svg"
           alt="message"
-          value={formatAndDivideNumber(answers.length)}
+          value={formatAndDivideNumber(answers?.length)}
           title="Answers"
           textStyle="small-medium text-dark400_light800"
         />

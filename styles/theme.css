@@ -90,6 +90,9 @@
   .text-light400_light500 {
     @apply text-light-400 dark:text-light-500 !important;
   }
+  .text-light500_light500 {
+    @apply text-light-500 dark:text-light-500 !important;
+  }
 
   .light-border {
     @apply border-light-800 dark:border-dark-300;
