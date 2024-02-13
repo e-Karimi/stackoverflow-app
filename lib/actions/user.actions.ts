@@ -21,10 +21,6 @@ export async function getUserByID(params: GetUserByIdParams) {
 }
 
 export async function createUSer(userData: CreateUserParams) {
-  console.log("🅾createUSer ~ userData:", userData);
-
-  // const { clerkId, name, username, email, picture } = userData;
-
   try {
     connectToDb();
     const newUser = await UserModel.create({ ...userData });
